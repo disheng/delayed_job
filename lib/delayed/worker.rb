@@ -255,9 +255,9 @@ module Delayed
   protected
 
     def handle_failed_job(job, error)
-      job.last_error = "#{error.message}\n#{error.backtrace.join("\n")}"
+      # job.last_error = "#{error.message}\n#{error.backtrace.join("\n")}"
       job_say job, "FAILED (#{job.attempts} prior attempts) with #{error.class.name}: #{error.message}", Logger::ERROR
-      reschedule(job)
+      # reschedule(job)
     end
 
     # Run the next job we can get an exclusive lock on.
